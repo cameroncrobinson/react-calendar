@@ -3,10 +3,10 @@ URL for calendar project : [here](https://blog.logrocket.com/react-calendar-tuto
 
 Resources for different parts of the app:
 
-[Building a modal component](https://www.digitalocean.com/community/tutorials/react-modal-component)
- [Creating tags functionality](https://dev.to/prvnbist/create-a-tags-input-component-in-reactjs-ki)
- [Google Calendar API with React](https://www.npmjs.com/package/react-google-calendar-api)
- [React with Google Calendar Events](https://dev.to/nouran96/google-calendar-events-with-react-544g)
+- [Building a modal component](https://www.digitalocean.com/community/tutorials/react-modal-component)
+- [Creating tags functionality](https://dev.to/prvnbist/create-a-tags-input-component-in-reactjs-ki)
+- [Google Calendar API with React](https://www.npmjs.com/package/react-google-calendar-api)
+- [React with Google Calendar Events](https://dev.to/nouran96/google-calendar-events-with-react-544g)
 
 
 # Getting Started with Create React App
