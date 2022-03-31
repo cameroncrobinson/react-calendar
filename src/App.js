@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React, { Component }  from 'react';
+import { useState } from 'react';
+import Calendar from 'react-calendar';
 import './App.css';
 
+
 function App() {
+  const [date, setDate] = useState(new Date());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className='app'>
+      <h1 className='text-center'>React Calendar with Range</h1>
+      <div className='calendar-container'>
+        <Calendar
+          onChange={setDate}
+          selectRange={true}
+          defaultValue={date}
+        />
+      </div>
+      {date.length > 0 ? (
+        <p className='text-center'>
+          <span className='bold'>Start:</span>{' '}
+          {date[0].toDateString()}
+          &nbsp;|&nbsp;
+          <span className='bold'>End:</span> {date[1].toDateString()}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      ) : (
+        <p className='text-center'>
+          <span className='bold'>Default selected date:</span>{' '}
+          {date.toDateString()}
+        </p>
+      )}
     </div>
   );
 }
