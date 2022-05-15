@@ -29,15 +29,53 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="eventButton">
+      <button type="button" class="eventButtonBox">+</button>
+    </div>
+    <div id="event-form" class="eventForm">
+      <form class="eventFormBox" id="myForm">
+        <label>Event Title:</label><br>
+        <input type="text" id="title"><br>
+        <label>Day(s):</label><br>
+        <input type="text" id ="dates"><br>
+        <label>Location:</label><br>
+        <input type="text" id="location"><br>
+        <label>Description:</label><br>
+        <input type="text" id="desc"><br>
+        <button type="button" id="btnSubmit" class="btn-submit">Create Event</button>
+      </form>
+    </div>
+    <script>
+      src="js/app.js"
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      let formEvents = []; //use to store Events, add json functionality after
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+//adding a function to react to onClick of submit button. Intent is to create one array to send
+//to json after working.
+const addEvent = (ev) => {
+  ev.preventDefault();  //to stop the page from reloading
+  let newEvent = {
+      id: Date.now(),
+      title: document.getElementById('title').value, //get title from form
+      dates: document.getElementById('dates').value, //get date inputs from form
+      location: document.getElementById('location').value, //get location from form
+      description: document.getElementById('desc').value //get description from form
+  }
+  formEvents.push(addEvent); //addEvent variable added to formEvents
+  document.forms[0].reset(); //resets the form for user to input new event
+
+  /*currently attempting to store locally, until I can prove it works properly before trying to send this over to json file.
+  */
+  localStorage.setItem('EventList', JSON.stringify(formEvents));
+}
+
+//create event listener, adjust the DOM to wait submit button click, then trigger addEvent funct.
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btnSubmit').addEventListener('click', addEvent);
+});
+/*
+Currently,the form responds and resets on trigger, however, the formEvents object can't be console logged to store the form data. I'm not sure what is quite wrong yet. Would be happy for some feedback from Cameron.
+*/
+    </script>
   </body>
 </html>
