@@ -30,9 +30,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <div class="eventButton">
-      <button type="button" class="eventButtonBox">+</button>
+      <button type="button" class="eventButtonBox">Add Event</button>
     </div>
-    <div id="event-form" class="eventForm">
+    <div id="event-form" class="eventForm modal hidden">
       <form class="eventFormBox" id="myForm">
         <label>Event Title:</label><br>
         <input type="text" id="title"><br>
@@ -45,6 +45,7 @@
         <button type="button" id="btnSubmit" class="btn-submit">Create Event</button>
       </form>
     </div>
+    <div class="overlay hidden"></div>
     <script>
       src="js/app.js"
 
