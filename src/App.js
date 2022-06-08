@@ -34,4 +34,26 @@ function App() {
   );
 }
 
+//The following is for the modal form
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnOpenForm = document.querySelector('.eventButtonBox')
+
+const openForm = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+}
+const closeForm = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+btnOpenForm.addEventListener('click', openForm);
+overlay.addEventListener('click', closeForm);
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeForm();
+  }
+});
+//modal form code ends here
 export default App;
