@@ -11,6 +11,7 @@ const EventList = (props) => {
   return (
     <ul>
       {props.storedEvents.map((events) => (
+        
         <EventItem
           key={events.id}
           title={events.title}

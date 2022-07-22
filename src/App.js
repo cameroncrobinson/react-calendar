@@ -13,11 +13,7 @@ function App() {
   };
   return (
     <Fragment>
-      <h1>
-        {" "}
-        Cameron Robinson & Jeff Muter's Random & Overly Long Title for a React
-        Calendar Event App
-      </h1>
+      <h1>React Calendar Event App</h1>
       <Calendar />
       <NewEvent onAddEvent={addEventHandler} />
       <EventList storedEvents={calEvents} />

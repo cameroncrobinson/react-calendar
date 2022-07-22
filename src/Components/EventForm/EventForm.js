@@ -1,5 +1,6 @@
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
+import Modal from "./Modal";
 import Card from "../UI/Card";
 
 const EventForm = (props) => {
@@ -55,46 +56,48 @@ const EventForm = (props) => {
 
   return (
     <Card>
-      <form onSubmit={submitHandler}>
-        <div>
+      <Modal>
+        <form onSubmit={submitHandler}>
           <div>
-            <label>Event Title:</label>
-            <br />
-            <input type="text" onChange={enterTitleHandler}></input>
-            <br />
+            <div>
+              <label>Event Title:</label>
+              <br />
+              <input type="text" onChange={enterTitleHandler}></input>
+              <br />
+            </div>
+            <div>
+              <label>Date:</label>
+              <br />
+              <input
+                type="date"
+                min="2000-01-01"
+                max="3000-12-31"
+                value={enteredDate}
+                onChange={dateChangeHandler}
+              ></input>
+              <br />
+            </div>
+            <div>
+              <label>Location:</label>
+              <br />
+              <input type="text" onChange={enterLocationHandler}></input>
+              <br />
+            </div>
+            <div>
+              <label>Description:</label>
+              <br />
+              <input type="text" onChange={enterDescHandler}></input>
+              <br />
+            </div>
+            <div>
+              <button type="button" onClick={props.onCancel}>
+                Cancel
+              </button>
+              <button type="submit">Submit</button>
+            </div>
           </div>
-          <div>
-            <label>Date:</label>
-            <br />
-            <input
-              type="date"
-              min="2000-01-01"
-              max="3000-12-31"
-              value={enteredDate}
-              onChange={dateChangeHandler}
-            ></input>
-            <br />
-          </div>
-          <div>
-            <label>Location:</label>
-            <br />
-            <input type="text"></input>
-            <br />
-          </div>
-          <div>
-            <label>Description:</label>
-            <br />
-            <input type="text"></input>
-            <br />
-          </div>
-          <div>
-            <button type="button" onClick={props.onCancel}>
-              Cancel
-            </button>
-            <button type="submit">Submit</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </Modal>
     </Card>
   );
 };

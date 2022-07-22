@@ -5,10 +5,13 @@ import Card from "../UI/Card";
 const EventItem = (props) => {
   return (
     <Card>
-      <EventDate date={props.date} />
       <div>
-        <h2>{props.title}</h2>
-        <p>{props.desc}</p>
+        <EventDate date={props.date} />
+        <div>
+          <h2>{props.title}</h2>
+          <h3>{props.location}</h3>
+          <h3>{props.desc}</h3>
+        </div>
       </div>
     </Card>
   );
